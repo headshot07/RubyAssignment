@@ -1,5 +1,4 @@
 class Food_Ordering_System
-
 	@@menu={"Paneer"=>200,"Dal"=>100,"Egg Roll"=>50,"Veg Roll"=>30,"Momos"=>20}
 	@@menu_count={"Paneer"=>5,"Dal"=>5,"Egg Roll"=>5,"Veg Roll"=>5,"Momos"=>5}
 	attr_accessor :status
@@ -35,6 +34,8 @@ class Food_Ordering_System
 			print "Your Order Is Pending!"
 			puts ''
 		end
+		# print @status
+		# puts ''
 	end
 
 	def accept_order
@@ -51,7 +52,6 @@ class Food_Ordering_System
 						flag_check=true
 					end
 				end
-
 
 				if flag_check
 					if @@menu_count[item]==0
@@ -84,6 +84,12 @@ class Food_Ordering_System
 				puts ''
 				option=gets.chomp
 				if option=='n'
+					print "Your Order List :"
+					puts ''
+					@ordered_item.each do |key,value|
+						print "Dish: #{key}   Quantity: #{value}"
+						puts ''
+					end
 					flag=false
 					@status=true
 				end
